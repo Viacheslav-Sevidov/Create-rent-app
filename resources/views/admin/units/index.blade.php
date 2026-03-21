@@ -6,6 +6,8 @@
 <div class="bg-white p-6 rounded-lg shadow-md">
     <h2 class="text-2xl font-bold mb-4">Управління приміщеннями</h2>
 
+    <a href="{{ route('units.create') }}" class="bg-green-600 text-white px-4 py-2 rounded inline-block mb-4">Додати приміщення</a>
+
     @if(session('success'))
         <div class="bg-green-100 text-green-800 p-3 rounded mb-4">
             {{ session('success') }}

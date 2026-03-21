@@ -15,6 +15,10 @@ Route::get('/spaces/{id}', [SpaceController::class, 'show']);
 
 Route::get('/admin/units', [UnitController::class, 'index'])->name('units.index');
 
+Route::get('/admin/units/create', [UnitController::class, 'create'])->name('units.create');
+
+Route::post('/admin/units', [UnitController::class, 'store'])->name('units.store');
+
 Route::get('/admin/units/{unit}', [UnitController::class, 'show'])->name('units.show');
 
 Route::delete('/admin/units/{unit}', [UnitController::class, 'destroy'])->name('units.destroy');
