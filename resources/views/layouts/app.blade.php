@@ -16,6 +16,29 @@
                 <a href="/about" class="hover:text-red-300">Про проєкт</a>
                 <a href="/spaces" class="hover:text-red-300">Каталог площ</a>
             </div>
+            <div class="flex items-center space-x-4">
+    
+                @guest
+                    <a href="{{ route('login') }}" class="text-white hover:underline">Вхід</a>
+                    <a href="{{ route('register') }}" class="bg-white text-red-800 px-3 py-1 rounded hover:bg-gray-200 transition">Реєстрація</a>
+                @endguest
+
+                @auth
+                    <a href="{{ route('units.index') }}" class="text-white hover:underline mr-4">Адмін-панель</a>
+        
+                    <span class="text-white font-bold border-l border-red-400 pl-4 ml-2">
+                    Привіт, {{ Auth::user()->name }}!
+                    </span>
+
+                    <form method="POST" action="{{ route('logout') }}" class="inline ml-4">
+                        @csrf
+                        <button type="submit" class="border border-white text-white px-3 py-1 rounded hover:bg-white hover:text-red-800 transition">
+                        Вихід
+                        </button>
+                    </form>
+                @endauth
+
+            </div>
         </nav>
     </header>
 

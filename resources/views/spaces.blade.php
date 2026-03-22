@@ -7,11 +7,15 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         @foreach($spaces as $space)
+        
             <x-card 
-                :title="$space['name']" 
-                :area="$space['area']" 
-                :status="$space['status']" 
+                :title="$space->unit_number" 
+                :floor="$space->floor" 
+                :area="$space->area" 
+                :price="$space->base_price"
+                :status="$space->status" 
             />
+        
         @endforeach
     </div>
 @endsection
