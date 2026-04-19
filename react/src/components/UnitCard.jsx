@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-export default function UnitCard({ unit }) {
+export default function UnitCard({ unit, onRent }) {
   const [days, setDays] = useState(1);
+  const totalPrice = unit.price * days;
 
   const incrementDays = () => setDays(days + 1);
   const decrementDays = () => {
@@ -39,11 +40,14 @@ export default function UnitCard({ unit }) {
             </div>
             
             <div className="font-bold text-gray-700">
-                Загалом: {unit.price * days} грн
+                Загалом: {totalPrice} грн
             </div>
         </div>
 
-        <button className="w-full mt-4 bg-red-800 text-white py-2 rounded hover:bg-red-700 transition">
+        <button 
+          onClick={() => onRent(unit.title, days, totalPrice)}
+          className="w-full mt-4 bg-red-800 text-white py-2 rounded hover:bg-red-700 transition"
+        >
           Орендувати
         </button>
       </div>
