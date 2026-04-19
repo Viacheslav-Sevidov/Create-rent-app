@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function UnitCard({ unit, onRent }) {
   const [days, setDays] = useState(1);
@@ -18,7 +19,9 @@ export default function UnitCard({ unit, onRent }) {
       </div>
       
       <div className="p-4">
-        <h3 className="text-xl font-bold text-gray-800">{unit.title}</h3>
+        <h3 className="text-xl font-bold text-gray-800"><Link to={`/unit/${unit.id}`} className="hover:text-red-800 transition">
+               {unit.title}
+           </Link></h3>
         <p className="text-gray-600 mt-1">Площа: {unit.area} кв.м</p>
         <p className="text-red-800 font-bold mt-2 text-lg">Ціна: {unit.price} грн/день</p>
 

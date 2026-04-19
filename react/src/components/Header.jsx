@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 export default function Header() {
   return (
     <header className="bg-red-800 text-white shadow-md">
@@ -5,9 +6,9 @@ export default function Header() {
         <div className="text-xl font-bold">Оренда Площ</div>
         
         <div className="space-x-4">
-          <a href="/" className="hover:text-red-300">Головна</a>
-          <a href="/spaces" className="hover:text-red-300">Каталог</a>
-          <a href="/about" className="hover:text-red-300">Про нас</a>
+          <Link to="/" className="hover:text-red-300">Головна</Link>
+          <Link to="/catalog" className="hover:text-red-300">Каталог</Link>
+          <Link to="/about" className="hover:text-red-300">Про нас</Link>
         </div>
         
         <div className="flex items-center space-x-4">
