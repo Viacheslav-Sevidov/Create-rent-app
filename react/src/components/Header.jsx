@@ -9,6 +9,7 @@ export default function Header() {
           <Link to="/" className="hover:text-red-300">Головна</Link>
           <Link to="/catalog" className="hover:text-red-300">Каталог</Link>
           <Link to="/about" className="hover:text-red-300">Про нас</Link>
+          <Link to="/contact" className="hover:text-red-200">Контакти</Link>
         </div>
         
         <div className="flex items-center space-x-4">
