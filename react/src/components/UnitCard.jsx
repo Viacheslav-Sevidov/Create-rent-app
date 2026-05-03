@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default function UnitCard({ unit, onRent }) {
   const [days, setDays] = useState(1);
-  const totalPrice = unit.price * days;
+  
+  const totalPrice = unit.base_price * days;
 
   const incrementDays = () => setDays(days + 1);
   const decrementDays = () => {
@@ -15,15 +16,18 @@ export default function UnitCard({ unit, onRent }) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
       <div className="h-48 bg-gray-300 flex items-center justify-center text-gray-500">
-        Фото {unit.title}
+        Фото {unit.unit_number}
       </div>
       
       <div className="p-4">
-        <h3 className="text-xl font-bold text-gray-800"><Link to={`/unit/${unit.id}`} className="hover:text-red-800 transition">
-               {unit.title}
-           </Link></h3>
+        <h3 className="text-xl font-bold text-gray-800">
+            <Link to={`/unit/${unit.id}`} className="hover:text-red-800 transition">
+               Приміщення {unit.unit_number}
+           </Link>
+        </h3>
         <p className="text-gray-600 mt-1">Площа: {unit.area} кв.м</p>
-        <p className="text-red-800 font-bold mt-2 text-lg">Ціна: {unit.price} грн/день</p>
+        
+        <p className="text-red-800 font-bold mt-2 text-lg">Ціна: {unit.base_price} грн/день</p>
 
         <div className="mt-4 flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -48,7 +52,7 @@ export default function UnitCard({ unit, onRent }) {
         </div>
 
         <button 
-          onClick={() => onRent(unit.title, days, totalPrice)}
+          onClick={() => onRent(`Приміщення ${unit.unit_number}`, days, totalPrice)}
           className="w-full mt-4 bg-red-800 text-white py-2 rounded hover:bg-red-700 transition"
         >
           Орендувати
