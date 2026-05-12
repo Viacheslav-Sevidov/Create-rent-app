@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UnitController;
+use App\Http\Controllers\Api\CheckoutController;
 
 Route::get('/units', [UnitController::class, 'index']);
 Route::get('/units/{id}', [UnitController::class, 'show']);
 Route::post('/units/store', [UnitController::class, 'store']);
+Route::post('/checkout', [CheckoutController::class, 'store']);
 Route::put('/units/{id}', [UnitController::class, 'update']);
 Route::delete('/units/{id}', [UnitController::class, 'destroy']);
 
@@ -16,3 +18,4 @@ Route::get('/categories', function () {
         ['id' => 3, 'name' => 'Склади', 'type' => 'warehouse'],
     ], 200);
 });
+
